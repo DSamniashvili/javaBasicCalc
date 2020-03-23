@@ -27,22 +27,25 @@ public class Calculator {
         return a - b;
     }
 
+    static boolean containsZero(int a, int b){
+        return a == 0 || b == 0;
+    }
+
     public static double multiply(double a, double b) {
-        if (a == 0 || b == 0) {
-            String zeroValue;
-            if(a == 0){
-                zeroValue = "a";
-            } else {
-                zeroValue = "b";
-            }
-            System.out.println("not permitted because of value: " + zeroValue);
+        if (containsZero((int)a, (int)b)) {
+            System.out.println("not permitted");
+            return 0;
         } else {
             return a * b;
         }
     }
 
     public static double division(double a, double b) {
-        return a / b;
+        if (containsZero((int)a, (int)b)) {
+            System.out.println("not permitted");
+            return 0;
+        } else {
+            return a / b;
+        }
     }
-
 }
